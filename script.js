@@ -3,8 +3,10 @@ const signs = [1,2,3];
 //2 - paper
 //3 - scissors
 
-const playerSelection = 'rock' //change to let when using prompt
+let playerSelection = 'rock' //change to let when using prompt
 let computerSelection = 1;
+let playerScore = 0;
+let comScore = 0; //computer score, will be compared with player score for result
 
 //rng a choice for the comp to use against the player
 function getComputerChoice() {
@@ -23,29 +25,36 @@ function playRound(playerSelection, computerSelection){
         return('Tie! ')
       }
       else if (computerSelection === signs[1]) {
-        return('You Lose! ')
+        comScore++;
+        return('You Lose! Opponent +1 ')
       }
       else (computerSelection === signs[2])
-        return('You Win! ')
+        playerScore++;
+        return('You Win! Player +1 ')
       break;
 
     case "paper":
       if (computerSelection === signs[0]) {
-        return('You Win! ')
+        playerScore++;
+        return('You Win! Player +1 ')
       }
       else if (computerSelection === signs[1]) {
         return('Tie! ')
       }
-      else (computerSelection === signs[2]) 
-        return('You Lose! ')
+      else (computerSelection === signs[2])
+        comScore++;
+        return('You Lose! Opponent +1 ')
+      
       break;
 
       case "scissors":
         if (computerSelection === signs[0]) {
-          return('You Lose! ')
+          comScore++;
+          return('You Lose! Opponent +1 ')
         }
         else if (computerSelection === signs[1]) {
-          return('You Win! ')
+          playerScore++;
+          return('You Win! Player +1 ')
         }
         else (computerSelection === signs[2])
           return ('Tie! ')
@@ -60,14 +69,19 @@ function playRound(playerSelection, computerSelection){
 //this will play 5 rounds of rock paper scissors
 //just use a while loop that incrimentes after every round
 function game(){
-  let round = 0;
   do {
-    round++
     console.log(playRound(playerSelection,computerSelection))
   }
-  while (round < 5)
-  return ("you played " + round + " rounds.")
+  while (playerScore < 3 && comScore < 3 )
+  
+  if (playerScore > comScore) {
+    return "Winner!!!"
+  }
+  else 
+  return "Loser!!!"
 }
 
 //result messagesnode
 console.log(game())
+console.log("Player score: "+playerScore)
+console.log("Computer score: "+comScore)
