@@ -90,11 +90,15 @@ function playRound(playerSelection, computerSelection){
  paperBtn.addEventListener('click', () => {
   playerSelection = 'paper'
   console.log(playRound(playerSelection,computerSelection))
+  pScoreUI.textContent = 'Player Score: ' + playerScore
+  cScoreUI.textContent = 'Opponent Score: ' + comScore
  })
 
  scissorsBtn.addEventListener('click', () => {
   playerSelection = 'scissors'
   console.log(playRound(playerSelection,computerSelection))
+  pScoreUI.textContent = 'Player Score: ' + playerScore
+  cScoreUI.textContent = 'Opponent Score: ' + comScore
  })
 
 
@@ -112,7 +116,7 @@ function playRound(playerSelection, computerSelection){
 
 
 
-//display for score
+//display for Score
  const pScoreUI = document.createElement('h3')
  pScoreUI.textContent = 'Player Score: ' + playerScore
  div.appendChild(pScoreUI)
