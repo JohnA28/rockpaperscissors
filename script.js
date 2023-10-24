@@ -75,43 +75,16 @@ function playRound(playerSelection, computerSelection){
  scissorsBtn.textContent = 'Scissors'
 
 
-
-
-
- //event listeners for button selections
- rockBtn.addEventListener('click', () => {
-  playerSelection = 'rock'
-  console.log(playRound(playerSelection,computerSelection))
-  pScoreUI.textContent = 'Player Score: ' + playerScore
-  cScoreUI.textContent = 'Opponent Score: ' + comScore
-  
- })
-
- paperBtn.addEventListener('click', () => {
-  playerSelection = 'paper'
-  console.log(playRound(playerSelection,computerSelection))
-  pScoreUI.textContent = 'Player Score: ' + playerScore
-  cScoreUI.textContent = 'Opponent Score: ' + comScore
- })
-
- scissorsBtn.addEventListener('click', () => {
-  playerSelection = 'scissors'
-  console.log(playRound(playerSelection,computerSelection))
-  pScoreUI.textContent = 'Player Score: ' + playerScore
-  cScoreUI.textContent = 'Opponent Score: ' + comScore
- })
-
-
-
-
-//some UI stuff for the player
+ //some UI stuff for the player
  const div = document.createElement('div')
  const body = document.querySelector('body')
+ const resultMsg = document.createElement('h1')
 
  body.appendChild(div)
  div.append(rockBtn)
  div.append(paperBtn)
  div.append(scissorsBtn)
+ div.appendChild(resultMsg)
 
 
 
@@ -127,6 +100,72 @@ function playRound(playerSelection, computerSelection){
 
 
 
+ //event listeners for button selections
+ rockBtn.addEventListener('click', () => {
+  playerSelection = 'rock'
+  console.log(playRound(playerSelection,computerSelection))
+
+  //updates score
+  pScoreUI.textContent = 'Player Score: ' + playerScore
+  cScoreUI.textContent = 'Opponent Score: ' + comScore
+
+
+  //checks score for victory or defeat
+  if (playerScore == 5) {
+    resultMsg.textContent = 'CONGRATS YOU WIN!!!'
+    div.appendChild(resultMsg)
+   } else if ( comScore == 5 ) {
+    resultMsg.textContent = 'DEFEAT YOU LOSE!!!'
+    div.appendChild(resultMsg)
+   } else {
+    resultMsg.textContent = ''
+   }
+  
+ })
+
+ paperBtn.addEventListener('click', () => {
+  playerSelection = 'paper'
+  console.log(playRound(playerSelection,computerSelection))
+
+  //updates score
+  pScoreUI.textContent = 'Player Score: ' + playerScore
+  cScoreUI.textContent = 'Opponent Score: ' + comScore
+
+
+  //checks score for victory or defeat
+  if (playerScore == 5) {
+    resultMsg.textContent = 'CONGRATS YOU WIN!!!'
+    div.appendChild(resultMsg)
+   } else if ( comScore == 5 ) {
+    resultMsg.textContent = 'DEFEAT YOU LOSE!!!'
+    div.appendChild(resultMsg)
+   } else {
+    resultMsg.textContent = ''
+   }
+   
+ })
+
+ scissorsBtn.addEventListener('click', () => {
+  playerSelection = 'scissors'
+  console.log(playRound(playerSelection,computerSelection))
+
+  //updates score
+  pScoreUI.textContent = 'Player Score: ' + playerScore
+  cScoreUI.textContent = 'Opponent Score: ' + comScore
+
+
+  //checks score for victory or defeat
+  if (playerScore == 5) {
+    resultMsg.textContent = 'CONGRATS YOU WIN!!!'
+    div.appendChild(resultMsg)
+   } else if ( comScore == 5 ) {
+    resultMsg.textContent = 'DEFEAT YOU LOSE!!!'
+    div.appendChild(resultMsg)
+   } else {
+    resultMsg.textContent = ''
+   }
+
+ })
 
 
 
