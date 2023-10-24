@@ -75,29 +75,57 @@ function playRound(playerSelection, computerSelection){
  scissorsBtn.textContent = 'Scissors'
 
 
+
+
+
+ //event listeners for button selections
  rockBtn.addEventListener('click', () => {
   playerSelection = 'rock'
   console.log(playRound(playerSelection,computerSelection))
-
+  pScoreUI.textContent = 'Player Score: ' + playerScore
+  cScoreUI.textContent = 'Opponent Score: ' + comScore
+  
  })
 
  paperBtn.addEventListener('click', () => {
   playerSelection = 'paper'
   console.log(playRound(playerSelection,computerSelection))
-  
  })
 
  scissorsBtn.addEventListener('click', () => {
   playerSelection = 'scissors'
   console.log(playRound(playerSelection,computerSelection))
-  
  })
 
+
+
+
+//some UI stuff for the player
+ const div = document.createElement('div')
  const body = document.querySelector('body')
 
- body.append(rockBtn)
- body.append(paperBtn)
- body.append(scissorsBtn)
+ body.appendChild(div)
+ div.append(rockBtn)
+ div.append(paperBtn)
+ div.append(scissorsBtn)
+
+
+
+
+//display for score
+ const pScoreUI = document.createElement('h3')
+ pScoreUI.textContent = 'Player Score: ' + playerScore
+ div.appendChild(pScoreUI)
+
+ const cScoreUI = document.createElement('h3')
+ cScoreUI.textContent = 'Opponent Score: ' + comScore
+ div.appendChild(cScoreUI)
+
+
+
+
+
+
 
 /*
 //this will play 5 rounds of rock paper scissors
