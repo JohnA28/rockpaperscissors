@@ -66,6 +66,40 @@ function playRound(playerSelection, computerSelection){
 
 }
 
+//UI buttons
+ const rockBtn = document.createElement('button')
+ rockBtn.textContent = 'Rock'
+ const paperBtn = document.createElement('button')
+ paperBtn.textContent = 'Paper'
+ const scissorsBtn = document.createElement('button')
+ scissorsBtn.textContent = 'Scissors'
+
+
+ rockBtn.addEventListener('click', () => {
+  playerSelection = 'rock'
+  console.log(playRound(playerSelection,computerSelection))
+
+ })
+
+ paperBtn.addEventListener('click', () => {
+  playerSelection = 'paper'
+  console.log(playRound(playerSelection,computerSelection))
+  
+ })
+
+ scissorsBtn.addEventListener('click', () => {
+  playerSelection = 'scissors'
+  console.log(playRound(playerSelection,computerSelection))
+  
+ })
+
+ const body = document.querySelector('body')
+
+ body.append(rockBtn)
+ body.append(paperBtn)
+ body.append(scissorsBtn)
+
+/*
 //this will play 5 rounds of rock paper scissors
 //just use a while loop that incrimentes after every round
 function game(){
@@ -85,3 +119,6 @@ function game(){
 console.log(game())
 console.log("Player score: "+playerScore)
 console.log("Computer score: "+comScore)
+
+
+*/
